@@ -1,166 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishav Anand - Resume</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f4f7f9;
-            color: #333;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 960px;
-            margin: 30px auto;
-            background: #fff;
-            padding: 30px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 12px;
-        }
-        h1, h2, h3 {
-            color: #2c3e50;
-        }
-        h1 {
-            font-size: 32px;
-            margin-bottom: 5px;
-        }
-        .contact-info {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 20px;
-        }
-        .section {
-            margin-bottom: 25px;
-        }
-        ul {
-            list-style-type: square;
-            margin-left: 20px;
-        }
-        .highlight {
-            background: #eaf2f8;
-            padding: 10px;
-            border-left: 4px solid #3498db;
-            margin-bottom: 10px;
-        }
-        .two-col {
-            display: flex;
-            justify-content: space-between;
-        }
-        .two-col > div {
-            width: 48%;
-        }
-        .badge {
-            background-color: #3498db;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 5px;
-            font-size: 12px;
-            margin-right: 5px;
-        }
-        .section-title {
-            margin-bottom: 10px;
-            font-weight: bold;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 4px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rishav Anand - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3498db;
+      --bg-light: #ffffff;
+      --bg-dark: #2c3e50;
+      --text-light: #ffffff;
+      --text-dark: #333333;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #eef2f3, #8e9eab);
+      color: var(--text-dark);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background: #121212;
+      color: var(--text-light);
+    }
+
+    .resume-container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: var(--bg-light);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode .resume-container {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    h1, h2, h3 {
+      color: var(--bg-dark);
+      margin-bottom: 10px;
+    }
+
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+      color: var(--text-light);
+    }
+
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+    }
+
+    .contact {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 35px;
+    }
+
+    .section-title {
+      font-size: 1.2em;
+      color: var(--primary);
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      font-weight: bold;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--text-light);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      margin: 4px 4px 0 0;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .two-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .two-columns > div {
+      flex: 1;
+    }
+
+    .toggle-btn {
+      display: flex;
+      justify-content: flex-end;
+      margin: 10px 20px 0;
+    }
+
+    button {
+      background: var(--primary);
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .resume-container {
+        padding: 20px;
+      }
+
+      .two-columns {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    .collapsible {
+      background-color: #f1f1f1;
+      color: #444;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      border-radius: 5px;
+    }
+
+    .active, .collapsible:hover {
+      background-color: #ccc;
+    }
+
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Rishav Anand</h1>
-        <div class="contact-info">
-            IBM Certified in Big Data Technologies with AWS<br>
-            📧 anand.rishav7856@gmail.com | 📞 +91 7856978876<br>
-            🔗 <a href="#">LinkedIn</a> | <a href="#">Git-Profile</a>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Technical Summary</h2>
-            <ul>
-                <li>Skilled in creating systems to organize, process, and analyze big datasets.</li>
-                <li>Experienced in designing and improving complex data pipelines and structures.</li>
-                <li>Collaborates well with different teams and continuously improves data-driven processes.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Professional Experience</h2>
-            <h3>Infosys Pvt. Ltd. (System Engineer) – Jul 2021 to Aug 2024</h3>
-            <ul>
-                <li>Developed OLAP systems for recommendations and service quality improvement.</li>
-                <li>Real-time data processing from UIs using Spark and Kafka.</li>
-                <li>Data migration using PySpark/Scala scripts from HBase to Hive.</li>
-                <li>Optimization of Spark jobs and memory management.</li>
-                <li>Tech Stack: Shell Scripting, Hive, Kafka, PySpark, NoSQL.</li>
-            </ul>
-
-            <h3>Capgemini Technology Services Ltd. (BI Specialist/Lead) – 0.6 yrs</h3>
-            <ul>
-                <li>Developed PySpark pipelines to process and publish data to Kafka.</li>
-                <li>Applied complex transformations, security configurations, and performance tuning.</li>
-                <li>Automated daily reporting using Airflow and Python.</li>
-                <li>Tech Stack: Hive, PySpark, Kafka, Airflow, Jenkins.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Certifications</h2>
-            <span class="badge">AWS Certified Cloud Practitioner – CF-02</span>
-            <span class="badge">IBM Certified in Data Engineering</span>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Achievements</h2>
-            <ul>
-                <li>HackerRank SQL Intermediate certified</li>
-                <li>Golden Badge in SQL on HackerRank</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Additional Projects (POC)</h2>
-            <ul>
-                <li><strong>Live Data Streaming using Kafka:</strong> Real-time flow from MySQL to JSON using Kafka Streaming.</li>
-                <li><strong>AWS Kinesis Streaming:</strong> Pipeline from DynamoDB to S3 with Lambda and Firehose; query-ready data via Athena and Glue.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="two-col">
-                <div>
-                    <ul>
-                        <li>C, Python, Java (Basic)</li>
-                        <li>DSA, SQL/NoSQL</li>
-                        <li>PySpark, Hive, Spark</li>
-                        <li>Kafka (Streaming), Hadoop</li>
-                        <li>Airflow (Orchestration)</li>
-                    </ul>
-                </div>
-                <div>
-                    <ul>
-                        <li>Git, Jira, Jenkins</li>
-                        <li>Data Modeling/Warehousing</li>
-                        <li>Cloud: AWS (Kinesis, Lambda, S3)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Education</h2>
-            <ul>
-                <li><strong>B.Tech - Electronics and Communication</strong>, Silicon Institute of Technology</li>
-                <li>CGPA: 7.74 | Year: 2017 – 2021</li>
-            </ul>
-        </div>
+  <div class="toggle-btn">
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </div>
+  <div class="resume-container">
+    <h1>Rishav Anand</h1>
+    <div class="contact">
+      IBM Certified in Big Data Technologies with AWS<br />
+      📧 <a href="mailto:anand.rishav7856@gmail.com">anand.rishav7856@gmail.com</a> | 📞 +91 7856978876<br />
+      <a href="#">LinkedIn</a> | <a href="#">Git-Profile</a>
     </div>
+
+    <div class="section">
+      <div class="section-title">Technical Summary</div>
+      <ul>
+        <li>Skilled in organizing, processing, and analyzing big datasets.</li>
+        <li>Experienced in designing scalable data pipelines.</li>
+        <li>Strong collaborator with a focus on optimizing data processes.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Professional Experience</div>
+      <button class="collapsible">Infosys Pvt. Ltd. – System Engineer (Jul 2021 - Aug 2024)</button>
+      <div class="content">
+        <ul>
+          <li>Built OLAP systems for recommendations and customer satisfaction.</li>
+          <li>Real-time processing using Spark and Kafka from UIs.</li>
+          <li>Extracted API data to HBase via Kafka; migrated to Hive.</li>
+          <li>Optimized Spark jobs for speed and memory efficiency.</li>
+          <li><strong>Tech Stack:</strong> Shell Scripting, Hive, Kafka, PySpark, NoSQL.</li>
+        </ul>
+      </div>
+
+      <button class="collapsible">Capgemini – BI Specialist/Lead (0.6 yrs)</button>
+      <div class="content">
+        <ul>
+          <li>Built PySpark pipelines to ingest and publish data to Kafka.</li>
+          <li>Used structured streaming and handled secure Kafka auth.</li>
+          <li>Automated reporting using Airflow and Python.</li>
+          <li><strong>Tech Stack:</strong> Hive, PySpark, Kafka, Airflow, Jenkins.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Certifications</div>
+      <span class="badge">AWS Cloud Practitioner</span>
+      <span class="badge">IBM Certified in Data Engineering</span>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Achievements</div>
+      <ul>
+        <li>HackerRank SQL Intermediate Certified</li>
+        <li>Golden Badge in SQL – HackerRank</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Additional Projects (POC)</div>
+      <ul>
+        <li><strong>Live Kafka Streaming:</strong> From MySQL to JSON using Kafka.</li>
+        <li><strong>AWS Streaming Pipeline:</strong> DynamoDB > Kinesis > Lambda > Firehose > S3 > Athena.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Technical Skills</div>
+      <div class="two-columns">
+        <div>
+          <ul>
+            <li>C, Python, Java (Basic)</li>
+            <li>DSA, SQL, NoSQL</li>
+            <li>PySpark, Hive, Spark, Hadoop</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>Kafka, Airflow, Jenkins</li>
+            <li>Git, Jira, Data Modeling</li>
+            <li>AWS: Kinesis, Lambda, S3, Glue</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Education</div>
+      <ul>
+        <li><strong>B.Tech - Electronics & Communication</strong>, Silicon Institute of Technology</li>
+        <li>CGPA: 7.74 | Year: 2017 – 2021</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    const collapsibles = document.querySelectorAll('.collapsible');
+    collapsibles.forEach(btn => {
+      btn.addEventListener('click', function () {
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
 </body>
 </html>
