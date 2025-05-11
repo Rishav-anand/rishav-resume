@@ -4,164 +4,160 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rishav Anand - Resume</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #3498db;
+      --primary: #00b894;
+      --secondary: #6c5ce7;
       --bg-light: #ffffff;
-      --bg-dark: #2c3e50;
-      --text-light: #ffffff;
-      --text-dark: #333333;
+      --bg-dark: #1e1e1e;
+      --text-light: #f1f1f1;
+      --text-dark: #2d3436;
+      --accent: #fab1a0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #eef2f3, #8e9eab);
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(to right, #dfe6e9, #b2bec3);
       color: var(--text-dark);
-      transition: background 0.3s, color 0.3s;
+      transition: background 0.4s, color 0.4s;
     }
 
     body.dark-mode {
-      background: #121212;
-      color: var(--text-light);
-    }
-
-    .resume-container {
-      max-width: 900px;
-      margin: 30px auto;
-      background: var(--bg-light);
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      transition: background 0.3s, color 0.3s;
-    }
-
-    body.dark-mode .resume-container {
       background: var(--bg-dark);
       color: var(--text-light);
     }
 
-    h1, h2, h3 {
-      color: var(--bg-dark);
-      margin-bottom: 10px;
+    .resume-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: var(--bg-light);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: background 0.4s;
     }
 
-    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
-      color: var(--text-light);
+    body.dark-mode .resume-container {
+      background: #2f3542;
     }
 
     h1 {
-      font-size: 2.2em;
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 10px;
-      margin-bottom: 25px;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 10px;
     }
 
     .contact {
-      font-size: 14px;
-      margin-bottom: 20px;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    .contact a {
+      color: var(--secondary);
     }
 
     .section {
-      margin-bottom: 35px;
+      margin-bottom: 40px;
     }
 
     .section-title {
-      font-size: 1.2em;
+      font-size: 1.3rem;
       color: var(--primary);
-      margin-bottom: 10px;
-      border-bottom: 1px solid #ccc;
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--accent);
       padding-bottom: 5px;
-      font-weight: bold;
+      font-weight: 600;
     }
 
-    ul {
-      padding-left: 20px;
-    }
-
-    li {
+    ul li {
       margin-bottom: 8px;
     }
 
     .badge {
       display: inline-block;
-      background: var(--primary);
-      color: var(--text-light);
-      padding: 4px 10px;
-      border-radius: 4px;
+      background: var(--secondary);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
       font-size: 13px;
-      margin: 4px 4px 0 0;
+      margin: 5px 8px 5px 0;
     }
 
-    a {
-      color: var(--primary);
-      text-decoration: none;
+    .toggle-btn {
+      text-align: right;
+      padding: 20px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    button {
+      background: var(--primary);
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
     }
 
     .two-columns {
       display: flex;
-      flex-wrap: wrap;
       gap: 40px;
+      flex-wrap: wrap;
     }
 
     .two-columns > div {
       flex: 1;
     }
 
-    .toggle-btn {
-      display: flex;
-      justify-content: flex-end;
-      margin: 10px 20px 0;
+    .collapsible {
+      background-color: #dfe6e9;
+      color: #2d3436;
+      cursor: pointer;
+      padding: 10px 15px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      font-weight: bold;
     }
 
-    button {
-      background: var(--primary);
-      border: none;
+    .content {
+      padding: 10px 18px;
+      display: none;
+    }
+
+    .active, .collapsible:hover {
+      background-color: var(--accent);
       color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
     }
 
     @media (max-width: 768px) {
       .resume-container {
         padding: 20px;
       }
-
       .two-columns {
         flex-direction: column;
-        gap: 20px;
       }
     }
 
-    .collapsible {
-      background-color: #f1f1f1;
-      color: #444;
-      cursor: pointer;
-      padding: 10px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 15px;
-      border-radius: 5px;
-    }
-
-    .active, .collapsible:hover {
-      background-color: #ccc;
-    }
-
-    .content {
-      padding: 0 18px;
-      display: none;
-      overflow: hidden;
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+      .toggle-btn, .collapsible {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -172,63 +168,73 @@
   <div class="resume-container">
     <h1>Rishav Anand</h1>
     <div class="contact">
-      IBM Certified in Big Data Technologies with AWS<br />
-      📧 <a href="mailto:anand.rishav7856@gmail.com">anand.rishav7856@gmail.com</a> | 📞 +91 7856978876<br />
+      IBM certified in Big Data Technologies with AWS<br />
+      📧 <a href="mailto:anand.rishav7856@gmail.com">anand.rishav7856@gmail.com</a> | 📞 +917856978876<br />
       <a href="#">LinkedIn</a> | <a href="#">Git-Profile</a>
     </div>
 
     <div class="section">
       <div class="section-title">Technical Summary</div>
       <ul>
-        <li>Skilled in organizing, processing, and analyzing big datasets.</li>
-        <li>Experienced in designing scalable data pipelines.</li>
-        <li>Strong collaborator with a focus on optimizing data processes.</li>
+        <li>Skilled in creating systems to organize, process, and analyze big datasets.</li>
+        <li>Experienced in designing and improving complex data pipelines and structures.</li>
+        <li>Collaborates well with different teams, always learning, and dedicated to improving data-driven processes for better.</li>
       </ul>
     </div>
 
     <div class="section">
       <div class="section-title">Professional Experience</div>
-      <button class="collapsible">Infosys Pvt. Ltd. – System Engineer (Jul 2021 - Aug 2024)</button>
+      <button class="collapsible">Infosys Pvt. Ltd. (System Engineer - Jul 2021 to Aug 2024)</button>
       <div class="content">
         <ul>
-          <li>Built OLAP systems for recommendations and customer satisfaction.</li>
-          <li>Real-time processing using Spark and Kafka from UIs.</li>
-          <li>Extracted API data to HBase via Kafka; migrated to Hive.</li>
-          <li>Optimized Spark jobs for speed and memory efficiency.</li>
+          <li>Developed an OLAP system focused on improving product recommendations, service quality, and customer satisfaction.</li>
+          <li>Emphasized real-time data processing from user interfaces (UIs).</li>
+          <li>Designed and implemented data pipelines using Apache Spark and Kafka to handle large-scale data efficiently.</li>
+          <li>Extracted data from external APIs and streamed it into HBase via Kafka.</li>
+          <li>Developed PySpark/Scala scripts for migrating data from HBase to Hive tables.</li>
+          <li>Created efficient Spark jobs to accelerate data processing and reduce job execution times.</li>
+          <li>Implemented data partitioning and caching strategies in Spark to optimize performance and resource utilization.</li>
+          <li>Ensured data quality checks for real-time data coming from UIs.</li>
+          <li>Improved Spark job execution plans and memory management, enhancing overall system efficiency.</li>
           <li><strong>Tech Stack:</strong> Shell Scripting, Hive, Kafka, PySpark, NoSQL.</li>
         </ul>
       </div>
-
-      <button class="collapsible">Capgemini – BI Specialist/Lead (0.6 yrs)</button>
+      <button class="collapsible">Capgemini Technology Services Limited (BI Specialist/Lead - 0.6 yrs)</button>
       <div class="content">
         <ul>
-          <li>Built PySpark pipelines to ingest and publish data to Kafka.</li>
-          <li>Used structured streaming and handled secure Kafka auth.</li>
-          <li>Automated reporting using Airflow and Python.</li>
-          <li><strong>Tech Stack:</strong> Hive, PySpark, Kafka, Airflow, Jenkins.</li>
+          <li>Developed data ingestion pipelines using PySpark to read and process data from various sources like Hive.</li>
+          <li>Designed and implemented a solution to publish data to Kafka using Spark's Kafka connector.</li>
+          <li>Used structured streaming to produce JSON events, with data serialized as key-value pairs, sending them to Kafka topics for further processing.</li>
+          <li>Worked with complex data transformations, and creating structured event payloads.</li>
+          <li>Implemented business logic in transformations by creating contract and relation identifiers, handling null checks, and applying header details to event data before sending.</li>
+          <li>Configured secure Kafka connections with SASL_SSL and JAAS authentication, managing Kafka API keys and secrets securely.</li>
+          <li>Optimized Spark jobs by configuring spark executor cores, memory, and shuffle partitions for efficient execution in production environments.</li>
+          <li>Enabled broadcast joins and filter operations to handle large datasets.</li>
+          <li>Owned the end-to-end automation of daily client report generation and delivery using Apache Airflow and Python.</li>
+          <li><strong>Tech Stack:</strong> Hive, PySpark, Kafka, Airflow, Jenkins-CICD Pipeline.</li>
         </ul>
       </div>
     </div>
 
     <div class="section">
       <div class="section-title">Certifications</div>
-      <span class="badge">AWS Cloud Practitioner</span>
+      <span class="badge">AWS Certified Cloud Practitioner – CF-02</span>
       <span class="badge">IBM Certified in Data Engineering</span>
     </div>
 
     <div class="section">
       <div class="section-title">Achievements</div>
       <ul>
-        <li>HackerRank SQL Intermediate Certified</li>
-        <li>Golden Badge in SQL – HackerRank</li>
+        <li>Hacker Rank - SQL Intermediate certified</li>
+        <li>Golden Badge achiever in SQL in Hacker Rank Platform</li>
       </ul>
     </div>
 
     <div class="section">
       <div class="section-title">Additional Projects (POC)</div>
       <ul>
-        <li><strong>Live Kafka Streaming:</strong> From MySQL to JSON using Kafka.</li>
-        <li><strong>AWS Streaming Pipeline:</strong> DynamoDB > Kinesis > Lambda > Firehose > S3 > Athena.</li>
+        <li>Live Data Streaming using Kafka: architecture facilitates real-time data flow from the MySQL database to a JSON file.</li>
+        <li>Live Data streaming using AWS service (Kinesis): mock data pushed to DynamoDB → Kinesis → Lambda → Firehose → S3 → Athena (via Glue Crawlers).</li>
       </ul>
     </div>
 
@@ -237,16 +243,22 @@
       <div class="two-columns">
         <div>
           <ul>
-            <li>C, Python, Java (Basic)</li>
-            <li>DSA, SQL, NoSQL</li>
-            <li>PySpark, Hive, Spark, Hadoop</li>
+            <li>C</li>
+            <li>Python</li>
+            <li>Java & JDBC (Basic)</li>
+            <li>DSA</li>
+            <li>SQL/NoSQL</li>
+            <li>PySpark</li>
           </ul>
         </div>
         <div>
           <ul>
-            <li>Kafka, Airflow, Jenkins</li>
-            <li>Git, Jira, Data Modeling</li>
-            <li>AWS: Kinesis, Lambda, S3, Glue</li>
+            <li>Hadoop</li>
+            <li>Hive</li>
+            <li>Spark</li>
+            <li>Kafka (Streaming)</li>
+            <li>Datawarehouse/Data Modeling</li>
+            <li>Airflow (Orchestration)</li>
           </ul>
         </div>
       </div>
@@ -255,8 +267,11 @@
     <div class="section">
       <div class="section-title">Education</div>
       <ul>
-        <li><strong>B.Tech - Electronics & Communication</strong>, Silicon Institute of Technology</li>
-        <li>CGPA: 7.74 | Year: 2017 – 2021</li>
+        <li><strong>DEGREE NAME:</strong> B-Tech</li>
+        <li><strong>College:</strong> Silicon Institute of Technology</li>
+        <li><strong>Branch:</strong> Electronics and Communication</li>
+        <li><strong>CGPA:</strong> 7.74</li>
+        <li><strong>Year:</strong> 2017-2021</li>
       </ul>
     </div>
   </div>
