@@ -105,77 +105,80 @@
     </div><!-- End Page Title -->
 
     <!-- Portfolio Details Section -->
-    <section id="portfolio-details" class="portfolio-details section">
+<section id="portfolio-details" class="portfolio-details section">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4">
+      <div class="col-lg-8">
+        <div class="portfolio-details-slider swiper init-swiper">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              }
+            }
+          </script>
 
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper init-swiper">
-
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/app-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/product-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/branding-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/books-1.jpg" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide">
+              <img src="assets/img/portfolio/app-1.jpg" alt="Real-Time Pipeline Overview">
+            </div>
+            <div class="swiper-slide">
+              <img src="assets/img/portfolio/product-1.jpg" alt="AWS Services Integration">
+            </div>
+            <div class="swiper-slide">
+              <img src="assets/img/portfolio/branding-1.jpg" alt="Data Flow Architecture">
+            </div>
+            <div class="swiper-slide">
+              <img src="assets/img/portfolio/books-1.jpg" alt="Athena and Glue Crawler Setup">
             </div>
           </div>
-
-          <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
-              </ul>
-            </div>
-            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Exercitationem repudiandae officiis neque suscipit</h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
-            </div>
-          </div>
-
+          <div class="swiper-pagination"></div>
         </div>
-
       </div>
 
-    </section><!-- /Portfolio Details Section -->
+      <div class="col-lg-4">
+        <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+          <h3>Project Information</h3>
+          <ul>
+            <li><strong>My Role</strong>: Designed & implemented a real-time data pipeline using AWS services for streaming and transformation</li>
+            <li><strong>Tools</strong>: Python, AWS Lambda, Kinesis, S3, DynamoDB, AWS Glue, Athena</li>
+            <li><strong>Project Date</strong>: May 2025</li>
+            <li><strong>Category</strong>: Stream Processing</li>
+          </ul>
+        </div>
+        <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+          <h2>Scalable Event-Driven Data Pipeline with AWS Glue and Kinesis Firehose</h2>
+          <p>
+            Developed a robust real-time data processing pipeline using AWS services. A custom Python-based mock data generator was created to simulate high-volume streaming data and push it to Amazon DynamoDB. EventBridge was then used to trigger data movement into Kinesis Data Streams for real-time ingestion.
+          </p>
+          <p>
+            A transformation layer using AWS Lambda processed and filtered incoming data before delivering it to S3 via Kinesis Firehose. To enable querying and analytics, a Glue Crawler with custom classifiers was configured to catalog data into the AWS Glue Data Catalog, making it accessible for querying through Athena.
+          </p>
+          <p><strong>Key Skills & Deliverables:</strong></p>
+          <ul>
+            <li>Python Scripting for Data Simulation</li>
+            <li>Amazon DynamoDB for Initial Storage</li>
+            <li>Amazon Kinesis for Real-Time Streaming</li>
+            <li>AWS Lambda for On-the-Fly Data Transformation</li>
+            <li>S3 Data Lake & AWS Glue for Cataloging</li>
+            <li>Athena for Serverless Querying</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- /Portfolio Details Section -->
 
   </main>
 
