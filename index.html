@@ -616,10 +616,15 @@
       if (response.ok) {
         success.style.display = 'block';
         form.reset();
+
+        // 🔽 Smooth scroll to success message
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
       } else {
         return response.json().then(data => {
           error.textContent = data.errors?.map(e => e.message).join(', ') || 'Oops! Something went wrong.';
           error.style.display = 'block';
+          error.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Optional scroll on error too
         });
       }
     })
@@ -627,9 +632,11 @@
       loading.style.display = 'none';
       error.textContent = 'Network error. Try again later.';
       error.style.display = 'block';
+      error.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   });
 </script>
+
 
 </body>
 </html>
