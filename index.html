@@ -599,44 +599,45 @@
   const error = form.querySelector('.error-message');
   const success = form.querySelector('.sent-message');
 
-  form.addEventListener('submit', async function (e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
+
+    // Reset states
     loading.style.display = 'block';
     error.style.display = 'none';
     success.style.display = 'none';
 
     const formData = new FormData(form);
 
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
       loading.style.display = 'none';
 
       if (response.ok) {
-        // ✅ Only show success message — do NOT parse JSON
         success.style.display = 'block';
         form.reset();
       } else {
-        // ❌ Only try to parse JSON if there's an error
-        const data = await response.json();
-        if (data.errors) {
-          error.textContent = data.errors.map(e => e.message).join(', ');
-        } else {
-          error.textContent = 'Oops! Something went wrong.';
-        }
-        error.style.display = 'block';
+        return response.json().then(data => {
+          if (data.errors) {
+            error.textContent = data.errors.map(e => e.message).join(', ');
+          } else {
+            error.textContent = 'Oops! Something went wrong.';
+          }
+          error.style.display = 'block';
+        });
       }
-    } catch (err) {
+    })
+    .catch(() => {
       loading.style.display = 'none';
-      error.textContent = 'Oops! Something went wrong. Please try again later.';
+      error.textContent = 'Oops! Network error. Please try again later.';
       error.style.display = 'block';
-    }
+    });
   });
 </script>
 
