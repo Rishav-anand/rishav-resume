@@ -619,9 +619,11 @@
       loading.style.display = 'none';
 
       if (response.ok) {
+        // ✅ Only show success message — do NOT parse JSON
         success.style.display = 'block';
         form.reset();
       } else {
+        // ❌ Only try to parse JSON if there's an error
         const data = await response.json();
         if (data.errors) {
           error.textContent = data.errors.map(e => e.message).join(', ');
