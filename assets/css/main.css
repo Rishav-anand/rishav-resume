@@ -1273,3 +1273,20 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+.loading,
+.error-message,
+.sent-message {
+  display: none;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.loading {
+  color: #999;
+}
+.error-message {
+  color: red;
+}
+.sent-message {
+  color: green;
+}
