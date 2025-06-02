@@ -227,3 +227,49 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+const form = document.querySelector('.php-email-form');
+  const loading = form.querySelector('.loading');
+  const error = form.querySelector('.error-message');
+  const success = form.querySelector('.sent-message');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Reset states
+    loading.style.display = 'block';
+    error.style.display = 'none';
+    success.style.display = 'none';
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      loading.style.display = 'none';
+
+      if (response.ok) {
+        success.style.display = 'block';
+        form.reset();
+      } else {
+        return response.json().then(data => {
+          if (data.errors) {
+            error.textContent = data.errors.map(e => e.message).join(', ');
+          } else {
+            error.textContent = 'Oops! Something went wrong.';
+          }
+          error.style.display = 'block';
+        });
+      }
+    })
+    .catch(() => {
+      loading.style.display = 'none';
+      error.textContent = 'Oops! Network error. Please try again later.';
+      error.style.display = 'block';
+    });
+  });
