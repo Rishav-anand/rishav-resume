@@ -548,12 +548,13 @@
 <label class="pb-2" for="message-field">Message</label>
 <textarea class="form-control" id="message-field" name="message" required="" rows="10"></textarea>
 </div>
+<input type="text" name="_honey" style="display:none">
+<input type="hidden" name="_captcha" value="false">
+
 <div class="col-md-12 text-center">
 <div class="loading">Loading</div>
 <div class="error-message">Some Thing went wrong.</div>
 <div class="sent-message">Your message has been sent. Thank you!</div>
-<input type="text" name="_honey" style="display:none">
-<input type="hidden" name="_captcha" value="false">
 
 <button type="submit">Send Message</button>
 </div>
@@ -629,5 +630,6 @@
     }
   });
 </script>
+
 </body>
 </html>
