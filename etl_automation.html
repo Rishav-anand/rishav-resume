@@ -66,7 +66,8 @@
         <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i>Resume</a></li>
         <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i>Portfolio</a></li>
         <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i>Certifications</a></li>
-        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i>Contact</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i>\
+        Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -76,17 +77,17 @@
     <!-- Page Title -->
     <div class="page-title dark-background">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Stream Processing</h1>
+        <h1 class="mb-2 mb-lg-0">ETL Workflow</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Stream Processing</li>
+            <li class="current">ETL Workflow</li>
           </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Portfolio Details Section -->
+<!-- Portfolio Details Section -->
 <section id="portfolio-details" class="portfolio-details section">
   <div class="container" data-aos="fade-up" data-aos-delay="100">
     <div class="row gy-5 align-items-start">
@@ -96,29 +97,27 @@
         <div class="portfolio-info mb-4" data-aos="fade-up" data-aos-delay="200">
           <h3>Project Information</h3>
           <ul>
-            <li><strong>Category</strong>: Stream Processing</li>
-            <li><strong>My Role</strong>: Designed & implemented a real-time data pipeline using AWS services</li>
-            <li><strong>Tools</strong>: Python, AWS Lambda, Kinesis, S3, DynamoDB, AWS Glue, Athena</li>
+            <li><strong>Category</strong>: Automated Reporting</li>
+            <li><strong>My Role</strong>: Designed & implemented an automated reporting pipeline using Airflow and AWS S3 for data processing</li>
+            <li><strong>Tools</strong>: Apache Airflow, pandas, Amazon S3, Python</li>
             <li><strong>Project Date</strong>: May 2025</li>
-            <li><strong>Project URL</strong>: <a href="https://github.com/Rishav-anand/Live_data_streaming_AWS">Click Here</a></li>
+            <li><strong>Project URL</strong>: <!-- Optional: Insert GitHub or demo link here if available --></li>
           </ul>
         </div>
         <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-          <h2>Scalable Event-Driven Data Pipeline with AWS Glue and Kinesis Firehose</h2>
+          <h2>Automated Excel Report Generation Using Apache Airflow</h2>
           <p>
-            Developed a robust real-time data processing pipeline using AWS services. A custom Python-based mock data generator was created to simulate high-volume streaming data and push it to Amazon DynamoDB. EventBridge was then used to trigger data movement into Kinesis Data Streams for real-time ingestion.
+            <strong>Project Description:</strong> This project automates the generation of Excel reports using Apache Airflow and AWS services. A DAG orchestrates the process of reading a CSV file from Amazon S3, converting it into an Excel file with pandas and OpenPyXL, applying bold formatting and auto-adjusting column widths, then uploading the final formatted report back to S3.
           </p>
           <p>
-            A transformation layer using AWS Lambda processed and filtered incoming data before delivering it to S3 via Kinesis Firehose. To enable querying and analytics, a Glue Crawler with custom classifiers was configured to catalog data into the AWS Glue Data Catalog, making it accessible for querying through Athena.
+            The use of base64 encoding ensures smooth data transfer via XCom. This pipeline enables scheduled or on-demand reporting, making data presentation consistent, readable, and ready for business insights.
           </p>
           <p><strong>Key Skills & Deliverables:</strong></p>
           <ul>
-            <li>Python Scripting for Data Simulation</li>
-            <li>Amazon DynamoDB for Initial Storage</li>
-            <li>Amazon Kinesis for Real-Time Streaming</li>
-            <li>AWS Lambda for On-the-Fly Data Transformation</li>
-            <li>S3 Data Lake & AWS Glue for Cataloging</li>
-            <li>Athena for Serverless Querying</li>
+            <li>Apache Airflow</li>
+            <li>pandas</li>
+            <li>Amazon S3</li>
+            <li>Python</li>
           </ul>
         </div>
       </div>
@@ -144,7 +143,7 @@
 
           <div class="swiper-wrapper align-items-center rounded shadow-sm">
             <div class="swiper-slide">
-              <img src="assets/img/portfolio/streaming_2.jpg" alt="Real-Time Pipeline Overview" class="img-fluid rounded">
+              <img src="assets/img/portfolio/airflow_excel_pipeline.jpg" alt="Excel Report Pipeline Architecture" class="img-fluid rounded">
             </div>
           </div>
           <div class="swiper-pagination mt-2"></div>
@@ -155,6 +154,7 @@
   </div>
 </section>
 <!-- /Portfolio Details Section -->
+
 
   </main>
 
