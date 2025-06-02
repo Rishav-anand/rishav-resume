@@ -619,16 +619,12 @@
         form.reset();
       } else {
         const data = await response.json();
-        if (data.errors) {
-          error.textContent = data.errors.map(e => e.message).join(', ');
-        } else {
-          error.textContent = 'Oops! There was a problem submitting your form';
-        }
+        error.textContent = data.errors ? data.errors.map(e => e.message).join(', ') : 'Oops! Something went wrong.';
         error.style.display = 'block';
       }
     } catch (err) {
       loading.style.display = 'none';
-      error.textContent = 'Oops! There was a problem submitting your form';
+      error.textContent = 'Oops! Something went wrong. Please try again later.';
       error.style.display = 'block';
     }
   });
