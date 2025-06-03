@@ -1290,3 +1290,23 @@ section,
 .sent-message {
   color: green;
 }
+
+.download-btn {
+    display: inline-block;
+    background-color: #149ddd;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(20, 157, 221, 0.4);
+    margin-top: 20px;
+  }
+
+.download-btn:hover {
+    background-color: #117bbd;
+    box-shadow: 0 6px 18px rgba(20, 157, 221, 0.6);
+    transform: translateY(-2px);
+  }
