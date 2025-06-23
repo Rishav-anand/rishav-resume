@@ -363,17 +363,17 @@
 <h5>Present</h5>
 <p><em>Bangalore, India, IN</em></p>
 <ul>
-  <li>Developed data ingestion pipelines using PySpark to read and process data from various sources like Hive.</li>
-  <li>Designed and implemented a solution to publish data to Kafka using Spark's Kafka connector.</li>
-  <li>Used structured streaming to produce JSON events, with data serialized as key-value pairs, sending them to Kafka topics for further processing.</li>
-  <li>Worked with complex data transformations, and creating structured event payloads.</li>
-  <li>Implemented business logic in transformations by creating contract and relation identifiers, handling null checks, and applying header details to event data before sending.</li>
-  <li>Configured secure Kafka connections with SASL_SSL and JAAS authentication, managing Kafka API keys and secrets securely.</li>
-  <li>Optimized Spark jobs by configuring spark executor cores, memory, and shuffle partitions for efficient execution in production environments.</li>
-  <li>Enabled broadcast joins and filter operations to handle large datasets.</li>
+  <li>Implemented data quality checks using Pandas to validate nulls and field dependencies before pushing data to the pipeline.</li>
+  <li>Designed a lightweight pre-processing step on EC2 to offload basic validation from the cluster, reducing resource usage on EMR.</li>
+  <li>Enabled partition pruning by writing partitioned Parquet files, improving downstream query performance by up to 40% by reading only relevant partitions.</li>
+  <li>Built an incremental data loading mechanism using Spark filters and partitioned writes, avoiding full data reloads and minimizing compute cost.</li>
+  <li>Used broadcast join with the daily exchange rate reference data to eliminate shuffle overhead, contributing to a ~25% improvement in Spark job execution time.</li>
+  <li>Leveraged predicate pushdown and column pruning via Parquet, which minimized unnecessary I/O and memory usage during reads.</li>
+  <li>Used Apache Airflow to orchestrate the entire data pipeline — automating EC2 and EMR provisioning, script transfers, dependency setup, and transformation job execution.</li>
   <li>Owned the end-to-end automation of daily client report generation and delivery using Apache Airflow and Python, optimizing scheduling, data transformation, and distribution.</li>
-  <li><strong>Tech Stack:</strong> Hive, PySpark, Kafka, Airflow, Jenkins-CICD Pipeline</li>
+  <li><strong>Tech-stack</strong> – Boto3, EC2, EMR, Glue Crawler, PySpark, Python scripting, Pandas, Airflow.</li>
 </ul>
+
 </div><!-- Edn Resume Item -->
 </div>
 </div>
