@@ -684,19 +684,25 @@
   });
 </script>
 <script>
-  // Set a unique namespace/key for your site
-  const counterKey = "rishav-portfolio-home"; 
+  const rawUrl = "https://raw.githubusercontent.com/rishav-anand/rishav-resume/main/visit-count.json";
 
-  fetch(`https://api.countapi.xyz/hit/${counterKey}`)
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById('visitor-count').textContent = 
-        `Visitor count: ${data.value}`;
-    })
-    .catch(() => {
-      document.getElementById('visitor-count').textContent = 
-        "Visitor count: N/A";
-    });
+  async function updateVisitorCount() {
+    try {
+      const res = await fetch(rawUrl);
+      const data = await res.json();
+      const current = data.visits + 1;
+
+      document.getElementById('visitor-count').innerText = `Visitor count: ${current}`;
+
+      // Update GitHub file (requires GitHub API token)
+      // Optional: I can help set this up if you want to auto-push new count
+    } catch (err) {
+      console.error("Visitor count error:", err);
+      document.getElementById('visitor-count').innerText = "Visitor count: N/A";
+    }
+  }
+
+  updateVisitorCount();
 </script>
 
 
