@@ -65,6 +65,7 @@
   <img alt="" class="" data-aos="fade-in" src="assets/img/big_data_banner.jpg" />
   <div class="container" data-aos="fade-up" data-aos-delay="100">
     <h2>Rishav Anand</h2>
+    <p style="color: #aaa; font-size: 14px;" id="visitor-count">Visitor count: Loading...</p>
     <p>
       I'm 
       <span class="typed" data-typed-items="Designer, Developer, Freelancer">Designer</span>
@@ -681,6 +682,21 @@
       error.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   });
+</script>
+<script>
+  // Set a unique namespace/key for your site
+  const counterKey = "rishav-portfolio-home"; 
+
+  fetch(`https://api.countapi.xyz/hit/${counterKey}`)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('visitor-count').textContent = 
+        `Visitor count: ${data.value}`;
+    })
+    .catch(() => {
+      document.getElementById('visitor-count').textContent = 
+        "Visitor count: N/A";
+    });
 </script>
 
 
