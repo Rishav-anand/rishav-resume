@@ -1312,8 +1312,8 @@ section,
   }
 
 .visitor-counter {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 05px;
+  margin-bottom: 05px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
