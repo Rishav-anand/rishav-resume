@@ -65,7 +65,9 @@
   <img alt="" class="" data-aos="fade-in" src="assets/img/big_data_banner.jpg" />
   <div class="container" data-aos="fade-up" data-aos-delay="100">
     <h2>Rishav Anand</h2>
-    <p style="color: #aaa; font-size: 14px;" id="visitor-count">Visitor count: Loading...</p>
+    <p>
+  <img src="https://hits.sh/rishav-anand.github.io/rishav-resume.svg?style=flat-square&label=Visitors&color=blue" alt="Visitor Count">
+</p>
     <p>
       I'm 
       <span class="typed" data-typed-items="Designer, Developer, Freelancer">Designer</span>
@@ -683,59 +685,6 @@
     });
   });
 </script>
-<script>
-  const GITHUB_TOKEN = "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"; // <- your token
-  const REPO = "Rishav-anand/rishav-resume";
-  const FILE_PATH = "visit-count.json";
-
-  async function updateVisitorCount() {
-    const apiUrl = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`;
-    const headers = {
-      Authorization: `token ${GITHUB_TOKEN}`,
-      Accept: "application/vnd.github.v3+json"
-    };
-
-    try {
-      // 1. Get current content
-      const response = await fetch(apiUrl, { headers });
-      const file = await response.json();
-
-      // 2. Decode content
-      const decoded = atob(file.content);
-      const json = JSON.parse(decoded);
-      json.visits += 1;
-
-      // 3. Prepare update payload
-      const newContent = btoa(JSON.stringify(json, null, 2));
-
-      const body = {
-        message: "Update visit count",
-        content: newContent,
-        sha: file.sha
-      };
-
-      // 4. Push updated content
-      const updateRes = await fetch(apiUrl, {
-        method: "PUT",
-        headers,
-        body: JSON.stringify(body)
-      });
-
-      if (updateRes.ok) {
-        document.getElementById("visitor-count").innerText =
-          `Visitor count: ${json.visits}`;
-      } else {
-        throw new Error("Failed to update GitHub");
-      }
-    } catch (err) {
-      console.error("Visitor counter error:", err);
-      document.getElementById("visitor-count").innerText = "Visitor count: N/A";
-    }
-  }
-
-  updateVisitorCount();
-</script>
-
 
 </body>
 </html>
