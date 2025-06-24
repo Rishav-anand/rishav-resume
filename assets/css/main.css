@@ -1310,3 +1310,14 @@ section,
     box-shadow: 0 6px 18px rgba(20, 157, 221, 0.6);
     transform: translateY(-2px);
   }
+  .visitor-counter {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.visitor-counter img {
+  height: 24px;
+  width: auto;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
